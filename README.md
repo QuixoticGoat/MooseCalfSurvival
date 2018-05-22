@@ -12,4 +12,4 @@ Government.
 
 -------------------------------------------------
 
-Estimates the survival rate of moose calves at Alaska Peninsula Becharof Refuge, Alaska.
+This project estimates the survival rate of moose calves at Alaska Peninsula Becharof Refuge, Alaska using known fate analysis.
