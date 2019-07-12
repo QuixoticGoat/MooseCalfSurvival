@@ -1,5 +1,4 @@
 
-
 ################################################################################
 # Import and format mark/resight data for moose calf survival estimation at    #
 # Alaska Peninsula Becharof using known fate models                            #
