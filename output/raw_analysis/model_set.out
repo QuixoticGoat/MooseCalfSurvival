@@ -1,24 +1,29 @@
 
    Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  001
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:12    Page  001
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
-   This version was compiled by GCC version 5.3.0 using the options 
-   -m64 -mtune=generic -march=x86-64 -mthreads -O2 -fimplicit-none -fbounds-check -funroll-loops -ftree-vectorize -fopenmp.
+   This version was compiled by GCC version 7.2.0 using the options: 
+     -cpp -iprefix c:\tdm-gcc-64\gcc\bin\../lib/gcc/x86_64-w64-mingw32/7.2.0/ -D_MT
+     -U_REENTRANT -D IEEE -m64 -mtune=generic -march=x86-64 -mthreads -O2
+     -fimplicit-none -fbounds-check -funroll-loops -ftree-vectorize
+     -ffpe-summary=invalid,zero,overflow,underflow -fno-unsafe-math-optimizations
+     -frounding-math -fsignaling-nans -fopenmp.
+
    This problem will use 7 of 8 possible threads.
 
 
   INPUT --- proc title ;
 
-     CPU Time in seconds for last procedure was 0.02
+     CPU Time in seconds for last procedure was 0.00
 
 
-  INPUT --- proc chmatrix occasions= 62 groups= 12 etype= Known ICMeans 
-  INPUT --- NoHist hist= 124 ;
+  INPUT --- proc chmatrix occasions= 62 groups= 12 etype= Known Nodes= 
+  INPUT --- 101 ICMeans NoHist hist=  125 ;
 
-  INPUT ---    time  interval 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-  INPUT ---    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  1 1 1 1 1 1 
-  INPUT ---    1 1 1 1 1 1 1 1 1 1 1 ;
+  INPUT ---    time interval 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+  INPUT ---    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1  1 1 1 1 1 1 1 1 1 1 1 1 1 
+  INPUT ---    1 1 1 1 1 1 1 1 1 1 ;
 
   INPUT ---    glabel(1)=Twin0.Year2011;
 
@@ -44,12 +49,12 @@
 
   INPUT ---    glabel(12)=Twin1.Year2016;
 
-   * *  WARNING  * *   At least a pair of the encounter histories are duplicates. 
-
   Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  002
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:12    Page  002
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
+
+   * *  WARNING  * *   At least a pair of the encounter histories are duplicates. 
 
       Number of unique encounter histories read was 103.
 
@@ -59,7 +64,7 @@
       Data type number is 4
       Data type is Known Fate                                                                                          
 
-     CPU Time in seconds for last procedure was 0.00
+     CPU Time in seconds for last procedure was 0.02
 
 
   INPUT --- proc estimate link=Logit NOLOOP varest=2ndPart    ;
@@ -95,13 +100,13 @@
   INPUT ---    group=6 S    rows=1 cols=62 Square ;
   INPUT ---        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 
   INPUT ---       6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 
-  INPUT ---       6 6 6 ;
-
 
   Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  003
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:12    Page  003
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
+  INPUT ---       6 6 6 ;
+
   INPUT ---    group=7 S    rows=1 cols=62 Square ;
   INPUT ---        7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
   INPUT ---       7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
@@ -146,126 +151,107 @@
   INPUT ---        1 0 0 1 0 0 1;
   INPUT ---        1 0 0 0 1 0 0;
   INPUT ---        1 0 0 0 1 0 1;
-  INPUT ---        1 0 0 0 0 1 0;
-  INPUT ---        1 0 0 0 0 1 1;
 
   Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  004
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:19    Page  004
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
-
-  INPUT ---    blabel(1)=S:(Intercept);
-
-  INPUT ---    blabel(2)=S:Year2012;
-
-  INPUT ---    blabel(3)=S:Year2013;
-
-  INPUT ---    blabel(4)=S:Year2014;
-
-  INPUT ---    blabel(5)=S:Year2015;
-
-  INPUT ---    blabel(6)=S:Year2016;
-
-  INPUT ---    blabel(7)=S:Twin1;
-
-  INPUT ---    rlabel(1)=S g02011 a1 t2;
-
-  INPUT ---    rlabel(2)=S g12011 a1 t2;
-
-  INPUT ---    rlabel(3)=S g02012 a1 t2;
-
-  INPUT ---    rlabel(4)=S g12012 a1 t2;
-
-  INPUT ---    rlabel(5)=S g02013 a1 t2;
-
-  INPUT ---    rlabel(6)=S g12013 a1 t2;
-
-  INPUT ---    rlabel(7)=S g02014 a1 t2;
-
-  INPUT ---    rlabel(8)=S g12014 a1 t2;
-
-  INPUT ---    rlabel(9)=S g02015 a1 t2;
-
-  INPUT ---    rlabel(10)=S g12015 a1 t2;
-
-  INPUT ---    rlabel(11)=S g02016 a1 t2;
-
-  INPUT ---    rlabel(12)=S g12016 a1 t2;
+  INPUT ---        1 0 0 0 0 1 0;
+  INPUT ---        1 0 0 0 0 1 1;
+  INPUT ---       blabel(1)=S:(Intercept);
+  INPUT ---       blabel(2)=S:Year2012;
+  INPUT ---       blabel(3)=S:Year2013;
+  INPUT ---       blabel(4)=S:Year2014;
+  INPUT ---       blabel(5)=S:Year2015;
+  INPUT ---       blabel(6)=S:Year2016;
+  INPUT ---       blabel(7)=S:Twin1;
+  INPUT ---       rlabel(1)=S g02011 a1 t2;
+  INPUT ---       rlabel(2)=S g12011 a1 t2;
+  INPUT ---       rlabel(3)=S g02012 a1 t2;
+  INPUT ---       rlabel(4)=S g12012 a1 t2;
+  INPUT ---       rlabel(5)=S g02013 a1 t2;
+  INPUT ---       rlabel(6)=S g12013 a1 t2;
+  INPUT ---       rlabel(7)=S g02014 a1 t2;
+  INPUT ---       rlabel(8)=S g12014 a1 t2;
+  INPUT ---       rlabel(9)=S g02015 a1 t2;
+  INPUT ---       rlabel(10)=S g12015 a1 t2;
+  INPUT ---       rlabel(11)=S g02016 a1 t2;
+  INPUT ---       rlabel(12)=S g12016 a1 t2;
 
  Link Function Used is LOGIT        
 
  Variance Estimation Procedure Used is 2ndPart 
- -2logL(saturated) = 561.95289     
+ -2logL(saturated) = 563.39412     
  Effective Sample Size = 5263
 
- Number of function evaluations was 41 for 7 parameters.
- Time for numerical optimization was 0.06 seconds.
-
-  Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  005
- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- 
- -2logL { S(~Year + Twin) } = 984.62774     
+ Number of function evaluations was 45 for 7 parameters.
+ Time for numerical optimization was 0.09 seconds.
+ -2logL { S(~Year + Twin) } = 983.81153     
  Penalty { S(~Year + Twin) } = -0.0000000    
  Gradient { S(~Year + Twin) }:
-   0.000000    -0.2199312E-04  0.000000      0.000000     0.1864397E-04
- -0.2046723E-04 0.9968553E-05
+  0.2876052E-05-0.1102659E-04-0.5618761E-05 0.9348978E-05 0.6306765E-05
+   0.000000      0.000000    
  S Vector { S(~Year + Twin) }:
-   178.9892      21.72513      19.01079      15.39216      12.74103    
-   11.08940      1.997371    
- Time to compute number of parameters was 0.01 seconds.
-   Threshold =  0.1600000E-06     Condition index =  0.1115917E-01     New Threshold =   5.284548    
+   179.2097      21.68115      18.80956      15.46584      12.67552    
+   11.12698      1.998985    
+ Time to compute number of parameters was 0.02 seconds.
+   Threshold =  0.1600000E-06     Condition index =  0.1115445E-01     New Threshold =   5.288818    
  New Guessimate of Estimated Parameters { S(~Year + Twin) } = 1          
  Conditioned S Vector { S(~Year + Twin) }:
-   1.000000     0.1213768     0.1062120     0.8599489E-01 0.7118326E-01
-  0.6195569E-01 0.1115917E-01
+   1.000000     0.1209821     0.1049584     0.8630027E-01 0.7073013E-01
+  0.6208916E-01 0.1115445E-01
  Number of Estimated Parameters { S(~Year + Twin) } = 7          
- DEVIANCE { S(~Year + Twin) } = 422.67485                     
+ DEVIANCE { S(~Year + Twin) } = 420.41741                     
  DEVIANCE Degrees of Freedom { S(~Year + Twin) } = 644            
- c-hat { S(~Year + Twin) } = 0.6563274                     
- AIC { S(~Year + Twin) } = 998.62774                  
- AICc { S(~Year + Twin) } = 998.64905                    
- BIC { S(~Year + Twin) } = 1044.6069                    
- Pearson Chisquare { S(~Year + Twin) } = Not a Number               
+ c-hat { S(~Year + Twin) } = 0.6528221                     
+ AIC { S(~Year + Twin) } = 997.81153                  
+ AICc { S(~Year + Twin) } = 997.83285                    
+ BIC { S(~Year + Twin) } = 1043.7907                    
+ Pearson Chisquare { S(~Year + Twin) } = 2675.4856                  
  Possible Encounter Histories { S(~Year + Twin) } = 1302             
  Pearson Chisquare df { S(~Year + Twin) } = 1283        
- Pearson chat { S(~Year + Twin) } = Not a Number               
- Sum(Observed/Expected) { S(~Year + Twin) } = Not a Number               
- Fletcher chat { S(~Year + Twin) } = Not a Number               
+ Pearson chat { S(~Year + Twin) } = 2.0853356                  
+ Sum(Observed/Expected) { S(~Year + Twin) } = 1226.8373                  
+ Fletcher chat { S(~Year + Twin) } = 2.2130946                  
+
+  Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:19    Page  005
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ 
 
 
                      LOGIT Link Function Parameters of { S(~Year + Twin) }
                                                               95% Confidence Interval
  Parameter                    Beta         Standard Error      Lower           Upper
  -------------------------  --------------  --------------  --------------  --------------
-    1:S:(Intercept)         3.0353261       0.3189414       2.4102010       3.6604512     
-    2:S:Year2012            0.0338402       0.3795344       -0.7100472      0.7777277     
-    3:S:Year2013            1.0451830       0.3687688       0.3223961       1.7679699     
-    4:S:Year2014            1.4418442       0.3988577       0.6600831       2.2236053     
-    5:S:Year2015            0.8293339       0.3448060       0.1535141       1.5051537     
-    6:S:Year2016            0.6663733       0.3511327       -0.0218469      1.3545934     
-    7:S:Twin1               0.1404548       0.2355291       -0.3211823      0.6020918     
+    1:S:(Intercept)         2.9528778       0.3164344       2.3326664       3.5730892     
+    2:S:Year2012            0.0310250       0.3796167       -0.7130237      0.7750738     
+    3:S:Year2013            1.0233437       0.3691193       0.2998699       1.7468174     
+    4:S:Year2014            1.4320699       0.3989401       0.6501473       2.2139925     
+    5:S:Year2015            0.8026176       0.3460340       0.1243910       1.4808442     
+    6:S:Year2016            0.6621963       0.3511966       -0.0261491      1.3505416     
+    7:S:Twin1               0.2602372       0.2362700       -0.2028520      0.7233264     
 
 
                      Real Function Parameters of { S(~Year + Twin) }
                                                                95% Confidence Interval
   Parameter                  Estimate       Standard Error      Lower           Upper
  --------------------------  --------------  --------------  --------------  --------------
-     1:S g02011 a1 t2        0.9541448       0.0139545       0.9176019       0.9749241                           
-     2:S g12011 a1 t2        0.9599126       0.0108527       0.9323272       0.9765364                           
-     3:S g02012 a1 t2        0.9556028       0.0133129       0.9208635       0.9754980                           
-     4:S g12012 a1 t2        0.9611947       0.0101279       0.9356812       0.9768383                           
-     5:S g02013 a1 t2        0.9833820       0.0052288       0.9693318       0.9910547                           
-     6:S g12013 a1 t2        0.9855280       0.0035093       0.9767676       0.9910155                           
-     7:S g02014 a1 t2        0.9887622       0.0038161       0.9782049       0.9942358                           
-     8:S g12014 a1 t2        0.9902204       0.0028541       0.9827062       0.9944879                           
-     9:S g02015 a1 t2        0.9794607       0.0054594       0.9655359       0.9878302                           
-    10:S g12015 a1 t2        0.9821039       0.0038679       0.9727158       0.9883006                           
-    11:S g02016 a1 t2        0.9759130       0.0065907       0.9589939       0.9859535                           
-    12:S g12016 a1 t2        0.9790030       0.0047141       0.9674747       0.9865022                           
+     1:S g02011 a1 t2        0.9503993       0.0149169       0.9115466       0.9726973                           
+     2:S g12011 a1 t2        0.9613248       0.0105434       0.9344592       0.9774439                           
+     3:S g02012 a1 t2        0.9518416       0.0142687       0.9148073       0.9732474                           
+     4:S g12012 a1 t2        0.9624620       0.0098616       0.9375643       0.9776676                           
+     5:S g02013 a1 t2        0.9815889       0.0057543       0.9661748       0.9900512                           
+     6:S g12013 a1 t2        0.9857474       0.0034626       0.9770990       0.9911593                           
+     7:S g02014 a1 t2        0.9876899       0.0041480       0.9762534       0.9936543                           
+     8:S g12014 a1 t2        0.9904837       0.0027869       0.9831377       0.9946468                           
+     9:S g02015 a1 t2        0.9771457       0.0063183       0.9608705       0.9867449                           
+    10:S g12015 a1 t2        0.9822896       0.0037530       0.9732187       0.9883250                           
+    11:S g02016 a1 t2        0.9737905       0.0070807       0.9556939       0.9846146                           
+    12:S g12016 a1 t2        0.9796738       0.0045987       0.9684057       0.9869772                           
 
   Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  006
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:19    Page  006
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -278,23 +264,23 @@
         Duration of                   95% Confidence Interval
  Group     Study      Standard Error     Lower          Upper     
  ----- -------------- -------------- -------------- --------------
-   1   0.0544609      0.0493829      0.0087156      0.2739527     
-   2   0.0791345      0.0554704      0.0189630      0.2764359     
-   3   0.0598687      0.0517114      0.0104090      0.2782591     
-   4   0.0859618      0.0561573      0.0226470      0.2762544     
-   5   0.3538171      0.1166407      0.1676691      0.5981187     
-   6   0.4050203      0.0894177      0.2475228      0.5848433     
-   7   0.4962436      0.1187452      0.2796817      0.7142241     
-   8   0.5437194      0.0971650      0.3561034      0.7196988     
-   9   0.2761810      0.0954427      0.1301914      0.4930748     
-  10   0.3264083      0.0797013      0.1923249      0.4965061     
-  11   0.2205399      0.0923423      0.0898559      0.4477786     
-  12   0.2682927      0.0800967      0.1414865      0.4492735     
+   1   0.0426756      0.0415282      0.0060427      0.2463472     
+   2   0.0866863      0.0589457      0.0215824      0.2899746     
+   3   0.0468824      0.0435735      0.0072221      0.2495852     
+   4   0.0932786      0.0592565      0.0253957      0.2888373     
+   5   0.3159649      0.1148403      0.1401777      0.5668619     
+   6   0.4106472      0.0894322      0.2524535      0.5897637     
+   7   0.4639569      0.1208050      0.2503998      0.6916054     
+   8   0.5527567      0.0964282      0.3652397      0.7263782     
+   9   0.2384940      0.0956112      0.1003991      0.4677673     
+  10   0.3302563      0.0782313      0.1977757      0.4965508     
+  11   0.1926917      0.0868686      0.0739789      0.4162681     
+  12   0.2799328      0.0814695      0.1496975      0.4619203     
 
-     CPU Time in seconds for last procedure was 0.09
+     CPU Time in seconds for last procedure was 0.12
 
   Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
-   gfortran(Win64) Vers. 8.1 Mar 2016   27-Jan-2017 15:17:07    Page  007
+   gfortran(Win64) Vers. 8.2 Sep 2017   18-Jun-2019 09:04:19    Page  007
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -303,9 +289,9 @@
 
      CPU Time in minutes for this job was 0.00
 
-     Time Start = 15:17:07.114   Time End = 15:17:07.171
+     Time Start = 09:04:12.440   Time End = 09:04:19.405
 
-     Wall Clock Time in minutes for this job was 0.00
+     Wall Clock Time in minutes for this job was 0.12
 
 
           E X E C U T I O N   S U C C E S S F U L 

@@ -1,0 +1,32 @@
+
+    model {
+    
+    # Survival Model
+    for(j in 1:(n.month-1)){                                         
+      for(t in 1:nyear){
+        mean.phi.w[j,t] ~ dunif(-5,5)
+      } #t
+    } #j
+
+    for(i in 1:n.ind){                  # Loop individuals (25)
+      for(t in 1:nyear){                # Loop years (10) 
+        # mu(i,1,t) <- 1
+        # w[i,1,t] ~ dbern(mu[i,1,t])
+        for (j in 2:n.month){           # Loop occasions (6 months)
+          logit(phi.w[i,j-1,t])<-mean.phi.w[j-1,t]
+          mu[i,j,t]<-phi.w[i,j-1,t]*w[i,j-1,t] 
+          w[i,j,t] ~ dbern(mu[i,j,t])
+        } #j
+      } #t
+    } #i
+
+    # Derived parameters
+    for(t in 1:nyear){ 
+      for(j in 1:(n.month-1)){    
+        logit(monthly.winter.phi[j,t])<-mean.phi.w[j,t]
+      }    
+      over.winter.phi[t]<-prod(monthly.winter.phi[,t])
+    } #t
+    }
+
+    

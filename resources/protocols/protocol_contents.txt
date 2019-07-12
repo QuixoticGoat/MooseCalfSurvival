@@ -1,0 +1,8 @@
+Directory Contents
+-------------------
+draft_elements (dir)
+	A directory to store draft elements (i.e., chapters) of an I&M protocol document.
+
+[ProjectName]Protocol_YYYY-MM-DD (.doc)
+	The latest draft of the I&M protocol document for the project. 
+
